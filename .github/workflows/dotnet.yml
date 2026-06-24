@@ -10,17 +10,14 @@ on:
     branches: [ "master" ]
 
 jobs:
-  build:
-
+  hello_world_job:
     runs-on: ubuntu-latest
-    container: mcr.microsoft.com/dotnet/sdk:3.1
-
+    name: A job to say hello
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --no-restore
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+      - name: Hello world action step
+        id: hello
+        uses: animedragonfighter/hello-world-action@v1
+        with:
+          who-to-greet: 'Antonaya Judkins'
+      - name: Get the output time
+        run: echo "The time was ${{steps.hello.outputs.time}}"
