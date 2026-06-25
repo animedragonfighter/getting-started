@@ -16,7 +16,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: animedragonfighter/hello-world-docker-action@v1
+        uses: animedragonfighter/hello-world-docker-action@v2
         with:
           who-to-greet: 'Antonaya Judkins'
       - name: Get the output time
